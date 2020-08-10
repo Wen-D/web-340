@@ -6,6 +6,18 @@
 ; Description: Modules
 ;=========================================== */
 
+/*
+Expected outcome: 
+
+Wendy Leon
+Exercise 1.3 Moduless
+Date: 8/9/2020
+
+https:
+thisurl.com
+name=leonwe
+*/
+
 var header = require('../header.js');
 
 var header = require('../header.js');
