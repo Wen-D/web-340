@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="eng">
+    <head>
+        <title>Views Example</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    </head>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul>
+                <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>       
+                <li class="nav-item"><a href="#" class="nav-link">Contact US</a></li>                
+            </ul>
+        </nav>
+
+        <div role="main" class="container">
+            <br><br>
+            <h2>EJS Views Example</h2>
+            <div class="row">
+                <div class="col-span sm-12">
+                    <div class="alert alert-success" role="alert">
+                        <strong>Message: </strong>
+                        <p>
+                            <%= firstName %><br /> 
+                        </p>
+                        <p>
+                            <%= lastName %>
+                        </p>
+                        <p>
+                            <%= address %>
+                        </p>
+                    </div>
+                </div>
+        </div>
+        </div>
+</html>           

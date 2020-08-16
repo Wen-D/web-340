@@ -11,7 +11,7 @@
 var express = require ("express");
 
 var http = require("http");
-
+//express function 
 var app = express();
 
 app.use(
@@ -21,7 +21,9 @@ app.use(
 
         response.end("Hello World");
     }
-);
-
-http.createServer(app).listen(8080);
+)
+//create server on port 8080
+http.createServer(app).listen(8080, function() {
+    console.log('Application started on port %s', 8080);
+});
 
