@@ -20,7 +20,7 @@ console.log('\n');
 var express = require ("express");
 var http = require('http');
 var app = express();
-
+// 404 status - page not found error
 app.get("/not-found", function(request, response)
 {
    response.status(404);
@@ -28,7 +28,7 @@ app.get("/not-found", function(request, response)
       error: "oh no, page not found"    
    })
 });
-
+//200 status - error loading
 app.get("/ok", function(request, response)
 {
    response.status(200);
@@ -36,7 +36,7 @@ app.get("/ok", function(request, response)
        message: "Page loaded correctly - for once."
    })
 });
-
+//  - page not implemented error 
 app.get("/not-implemented", function(request, response)
 {
     response.status(501);
@@ -44,7 +44,7 @@ app.get("/not-implemented", function(request, response)
         error: "Page not implemented. We are all wondering who's at fault..."
        })
 });
-
+// console log
 http.createServer(app).listen(3000, function(){
     console.log("This application stated on port 3000");
 });
