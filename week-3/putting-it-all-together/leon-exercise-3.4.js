@@ -34,16 +34,17 @@ app.get("/", function(request, response)
 http.createServer(app).listen(3000, function(){
     console.log("Application started on port 3000");
 });
-
+// About Page
 app.get("/about", function(request, response)
 {
        response.render("about",{message: "about page"});
 });
-
+// Contact Page
 app.get("/contact", function(request, response)
 {
        response.render("contact",{message: "contact page"});
 });
+// Products Page
 app.get("/products", function(request, response)
 {
        response.render("products",{message: "products page"});
