@@ -1,0 +1,28 @@
+<!--
+============================================
+; Title:  EJS Templates
+; Author: Professor Krasso
+; Date: 3 Sept 2020
+; Modified by: Wendy Leon
+; Description: EJS Templates
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Exercise 5.2</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>People - Random Names </h1>
+
+        <% if (people.length > 0) { %>
+            <% for (var i = 0; i < people.length; i++) { %>
+                <div class="alert alert-success"><strong><%= people[i] %></strong></div>
+            <% } %>
+        <% } %>        
+    </body>
+    
+</html>
