@@ -28,7 +28,7 @@ var names = ["Paola",
               "Cassey", 
               "Daniela"
               ];
-
+// "/" renders index page 
 app.get("/", function (request, response){
     response.render ("index", {people: names});
 });
