@@ -10,7 +10,7 @@
 
 //header
 
-var header = require('../../header.js');
+var header = require('../header.js');
 console.log(header.display('Wendy', 'Leon', 'Exercise 5.4 UI Dev'));
 console.log('');
 
