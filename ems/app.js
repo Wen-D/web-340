@@ -22,6 +22,7 @@ var path = require ("path");
 var logger = require ("morgan");
 var app = express();
 
+
 // template folder
 
 app.set("views", path.resolve(__dirname, "views"));
@@ -29,11 +30,16 @@ app.set("view engine", "ejs");
 app.use(logger("short"));
 
 //template 
+app.get("/list", function (request, response){
+    response.render("list", {title: "List Page"});
+});
+
 app.get("/", function (request, response){
     response.render("index", {title: "Home Page"});
 });
 
-http.createServer(app).listen(8080, function(){console.log("Application started on port 8080!")});
+
+http.createServer(app).listen(2000, function(){console.log("Application started on port 8080!")});
 
 
 //end program
