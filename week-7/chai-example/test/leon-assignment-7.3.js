@@ -1,4 +1,4 @@
-var fruits = require("../fruits");
+var fruits = require("../leon-fruits");
 
 var chai = require("chai");
 
