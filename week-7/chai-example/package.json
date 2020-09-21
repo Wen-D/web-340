@@ -1,0 +1,13 @@
+{
+    "name": "hello-world",
+    "author": "Professor Krasso - Wendy Leon",
+    "private": true,
+    "version": "0.0.1",
+    "dependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^8.1.3"
+    },
+    "scripts": {
+        "test": "mocha"
+    }
+}
