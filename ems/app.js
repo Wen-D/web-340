@@ -22,8 +22,8 @@ var path = require ("path");
 var logger = require ("morgan");
 var app = express();
 var mongoose = require("mongoose");
-var Employee = require("./models/employee");
-
+var Employee = require("./models/employee.js");
+var helmet = require("helmet");
 
 // mLab connection
 
@@ -31,7 +31,8 @@ var mongoDB = "mongodb+srv://PM:BU6637@buwebdev-cluster-1.oqsoi.mongodb.net/test
 
 mongoose.connect(mongoDB, {
 
-    useMongoClient: true
+  //  useMongoClient: true
+  useNewUrlParser: true
 
 });
 
@@ -43,7 +44,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error: "));
 
 db.once("open", function() {
 
-    console.log("Application connected to mLab MongoDB instance");
+console.log("Application connected to mLab MongoDB instance");
 
 });
 // application
@@ -59,6 +60,8 @@ app.use(logger("short"));
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
+// helmet
+app.use(helmet.xssFilter());
 app.use(logger("short"));
 
 // model
@@ -81,7 +84,7 @@ app.get("/", function (request, response){
 });
 
 
-http.createServer(app).listen(2000, function(){console.log("Application started on port 8080!")});
+http.createServer(app).listen(8000, function(){console.log("Application started on port 8080!")});
 
 
 //end program
