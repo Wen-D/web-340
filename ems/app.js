@@ -26,14 +26,14 @@ var crsf = require("csurf");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var Employee = require("./models/employee");
-
+const { response } = require('express');//***************************************** */
 // mLab connection
 
 var mongoDB = "mongodb+srv://PM:BU6637@buwebdev-cluster-1.oqsoi.mongodb.net/test?authSource=admin&replicaSet=atlas-hy8yuf-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
 mongoose.connect(mongoDB, {
 
-  //  useMongoClient: true
-  useNewUrlParser: true
+  useMongoClient: true
+  //useNewUrlParser: true
 
 });
 
@@ -64,10 +64,10 @@ app.use(cookieParser());
 app.use(helmet.xssFilter()); // helmet
 app.use(csrfProtection);
 
-app.use(function(req, res, next){
-  var token = req.csrfToken();
-  res.cookie('XSRF-TOKEN', token);
-  res.locals.csrfToken = token;
+app.use(function(request, response, next){
+  var token = request.csrfToken();
+  response.cookie('XSRF-TOKEN', token);
+  response.locals.csrfToken = token;
   next();
 })
 
@@ -76,54 +76,61 @@ app.use(function(req, res, next){
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
-//const { response } = require('express');/******* */
+
 
 //template routing
 
-app.get("/", function (req, res){
+app.get("/", function (request, response){
   response.render("index", {
       title: "New employee entry page",
       message: 'New employee entry page'
   });
 });
 
-app.get("/new", function(req, res){
-  res.render('new',{
+app.get("/new", function(request, response){
+  response.render('new',{
       title:'New Page - 8.3'
       });
 });
 
-app.post("/process", function(req,res){
-  console.log(req.body.txtName);
+app.post("/process", function(request,response){
+  console.log(request.body.txtName);
   response.redirect("/");
 
 });
 
 app.get("/list", function (request, response){
   
-    res.render("list",{
+    response.render("list",{
       title: "Employee List",
       employee: employees
     });
     console.log(employees);
   });
 
+// form data
+var employeeName = req.body.txtName;
+console.log(employeeName);
 
-// model   /
-var employee = new Employee({
-    firstName: 'Miranda',
-    lastName: 'Lewis'
-  });
-  
+/*var employeeLast = req.body.txtLast;
+console.log(employeeLast);*/
 
+//create an employee model
+let employee = new Employee({
+  firstName: employeeName,
+  //lastName: employeeLast
+});
 
+// save employee
+employee.save(function(error) {
+  if (error)
+    throw error;
+    console.log(employeeName + ' saved successfully');
+     });
+     response.redirect('/list');
+});
 
-
-
-
-
-
-http.createServer(app).listen(8000, function(){console.log("Application started on port 8080!")});
+http.createServer(app).listen(8000, function(){console.log("Application started on port 8000!")});
 
 //end program
 
