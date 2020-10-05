@@ -15,8 +15,12 @@
     <form method="post" action="/process">
 
       <div class="form-group">
-        <label for="txtName">Name:</label>
-        <input type="text" class="" id="txtName" name="txtName">
+        <label for="txtName" id="Name">Name:</label>
+        <input type="text"  class="form-control" id="txtName" name="txtName">
+      </div>
+      <div class="form-group">
+        <label for="txtLastName" id="lastName">Last Name:</label>
+        <input type="text" class="form-control" id="txtLastName" name="txtLastName" />
       </div>
 
       <div class="form-group">
@@ -33,6 +37,6 @@
   
   </div>
     <%- include("footer") %>
-    <%- include("script") %>
+    <%- include("scripts") %>
 </body>
 </html>
